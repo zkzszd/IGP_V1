@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Typedef">
+      <UniqueIdentifier>{e6eb293d-f88d-4478-8ae9-ad56e2add27d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shape">
+      <UniqueIdentifier>{e7b71b01-7f49-47ec-8939-682ab0f03e0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functor">
+      <UniqueIdentifier>{7a336c92-92ec-44eb-9f7c-00bfdc1db7c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{ff225c56-878f-47da-bb86-1230e5aa8319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageInfo">
+      <UniqueIdentifier>{b294cd60-1610-46a4-b0fa-d77c0ee88040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProcessModule">
+      <UniqueIdentifier>{74168df6-7188-4d40-a3e7-ac4aff2d5899}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Adapter">
+      <UniqueIdentifier>{afaecb39-8671-4371-9db2-66be19b494f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShowImage">
+      <UniqueIdentifier>{a30a6ab6-ed73-4576-be19-1a280b0df76a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jni">
+      <UniqueIdentifier>{d94ae0f0-bad9-4f4f-96ad-adefb24ac948}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{8edf84fb-1ff6-47eb-96f2-36a0b1db6747}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Typedef\_struct.cpp">
+      <Filter>Typedef</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\StringUtil.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\UtilAllocator.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\UtilMath.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape\IGPLineSegment.cpp">
+      <Filter>Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape\IGPTetragonum.cpp">
+      <Filter>Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape\LineCommonly.cpp">
+      <Filter>Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo\BitmapFactory.cpp">
+      <Filter>ImageInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo\IGPBitmap.cpp">
+      <Filter>ImageInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo\IGPBitmapBase.cpp">
+      <Filter>ImageInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo\IGPBitmapHSL.cpp">
+      <Filter>ImageInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\AlphaModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\BlackAndWhiteModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\BlurModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\FilletModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\GrayModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\ProjectionModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\ZoomModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Adapter\SpaceAdapter.cpp">
+      <Filter>Adapter</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowImage\OpencvShow.cpp">
+      <Filter>ShowImage</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectsModule.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo\IGPJpeg.cpp">
+      <Filter>ImageInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo\JpegTurbo.cpp">
+      <Filter>ImageInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo\IGPBitmapChannel.cpp">
+      <Filter>ImageInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\SelectiveBlur.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\IGPUtility.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\WhiteningMode.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModule\ProcessBase.cpp">
+      <Filter>ProcessModule</Filter>
+    </ClCompile>
+    <ClCompile Include="File\FileUtil.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Typedef\_struct.hpp">
+      <Filter>Typedef</Filter>
+    </ClInclude>
+    <ClInclude Include="Typedef\MyTypedef.h">
+      <Filter>Typedef</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\StringUtil.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\UtilAllocator.hpp">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\UtilMath.hpp">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\BaseRect.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\IGPCircle.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\IGPLineSegment.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\IGPPoint.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\IGPTetragonum.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\IGPVector.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\LineCommonly.hpp">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape\Shape.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="IGP.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor\judge.h">
+      <Filter>Functor</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor\ShadeFunctor.h">
+      <Filter>Functor</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo\BitmapFactory.hpp">
+      <Filter>ImageInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo\IGPBitmap.hpp">
+      <Filter>ImageInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo\IGPBitmapBase.hpp">
+      <Filter>ImageInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo\IGPBitmapHSL.hpp">
+      <Filter>ImageInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\AlphaModule.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\BlackAndWhiteModule.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\BlurModule.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\FilletModule.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\GrayModule.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\ProjectionModule.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\ZoomModule.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Adapter\SpaceAdapter.hpp">
+      <Filter>Adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowImage\OpencvShow.hpp">
+      <Filter>ShowImage</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectsModule.h">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo\IGPJpeg.h">
+      <Filter>ImageInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo\JpegTurbo.h">
+      <Filter>ImageInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="buildConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo\IGPBitmapChannel.h">
+      <Filter>ImageInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\IGPUtility.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\SelectiveBlur.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\WhiteningMode.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModule\ProcessBase.hpp">
+      <Filter>ProcessModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Typedef\My_define.h">
+      <Filter>Typedef</Filter>
+    </ClInclude>
+    <ClInclude Include="File\FileUtil.hpp">
+      <Filter>File</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jni\Android.mk">
+      <Filter>jni</Filter>
+    </None>
+    <None Include="jni\Application.mk">
+      <Filter>jni</Filter>
+    </None>
+  </ItemGroup>
+</Project>

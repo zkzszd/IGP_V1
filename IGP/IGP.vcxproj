@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EAD0D50B-EBBA-4F35-9282-81A51F711C2E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>IGP</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>F:\opencv_win\opencv\build\include\opencv2;F:\opencv_win\opencv\build\include\opencv;F:\opencv_win\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vs2015\vsWork\IGP\IGP\ThirdLib\debug\libpng;F:\vs2015\vsWork\IGP\IGP\ThirdLib\debug\libjpeg-turbo;F:\opencv_win\opencv\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>F:\opencv_win\opencv\build\include\opencv2;F:\opencv_win\opencv\build\include\opencv;F:\opencv_win\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vs2015\vsWork\IGP\IGP\ThirdLib\debug\libpng;F:\vs2015\vsWork\IGP\IGP\ThirdLib\debug\libjpeg-turbo;F:\opencv_win\opencv\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>F:\opencv_win\opencv\build\include\opencv2;F:\opencv_win\opencv\build\include\opencv;F:\opencv_win\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vs2015\vsWork\IGP\IGP\ThirdLib\release\libpng;F:\vs2015\vsWork\IGP\IGP\ThirdLib\release\libjpeg-turbo;F:\opencv_win\opencv\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>F:\opencv_win\opencv\build\include\opencv2;F:\opencv_win\opencv\build\include\opencv;F:\opencv_win\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vs2015\vsWork\IGP\IGP\ThirdLib\release\libpng;F:\vs2015\vsWork\IGP\IGP\ThirdLib\release\libjpeg-turbo;F:\opencv_win\opencv\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>-fopenmp %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world320d.lib;libpng16.lib;jpeg-static.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>-fopenmp %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world320d.lib;libpng16.lib;jpeg-static.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>-fopenmp %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world320.lib;libpng16.lib;zlib.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>-fopenmp %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world320.lib;libpng16.lib;zlib.lib;jpeg-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Adapter\SpaceAdapter.cpp" />
+    <ClCompile Include="EffectsModule.cpp" />
+    <ClCompile Include="File\FileUtil.cpp" />
+    <ClCompile Include="ImageInfo\BitmapFactory.cpp" />
+    <ClCompile Include="ImageInfo\IGPBitmap.cpp" />
+    <ClCompile Include="ImageInfo\IGPBitmapBase.cpp" />
+    <ClCompile Include="ImageInfo\IGPBitmapChannel.cpp" />
+    <ClCompile Include="ImageInfo\IGPBitmapHSL.cpp" />
+    <ClCompile Include="ImageInfo\IGPJpeg.cpp" />
+    <ClCompile Include="ImageInfo\JpegTurbo.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ProcessModule\AlphaModule.cpp" />
+    <ClCompile Include="ProcessModule\BlackAndWhiteModule.cpp" />
+    <ClCompile Include="ProcessModule\BlurModule.cpp" />
+    <ClCompile Include="ProcessModule\FilletModule.cpp" />
+    <ClCompile Include="ProcessModule\GrayModule.cpp" />
+    <ClCompile Include="ProcessModule\ProcessBase.cpp" />
+    <ClCompile Include="ProcessModule\ProjectionModule.cpp" />
+    <ClCompile Include="ProcessModule\SelectiveBlur.cpp" />
+    <ClCompile Include="ProcessModule\WhiteningMode.cpp" />
+    <ClCompile Include="ProcessModule\ZoomModule.cpp" />
+    <ClCompile Include="Shape\IGPLineSegment.cpp" />
+    <ClCompile Include="Shape\IGPTetragonum.cpp" />
+    <ClCompile Include="Shape\LineCommonly.cpp" />
+    <ClCompile Include="ShowImage\OpencvShow.cpp" />
+    <ClCompile Include="Typedef\_struct.cpp" />
+    <ClCompile Include="Util\IGPUtility.cpp" />
+    <ClCompile Include="Util\StringUtil.cpp" />
+    <ClCompile Include="Util\UtilAllocator.cpp" />
+    <ClCompile Include="Util\UtilMath.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Adapter\SpaceAdapter.hpp" />
+    <ClInclude Include="buildConfig.h" />
+    <ClInclude Include="EffectsModule.h" />
+    <ClInclude Include="File\FileUtil.hpp" />
+    <ClInclude Include="Functor\judge.h" />
+    <ClInclude Include="Functor\ShadeFunctor.h" />
+    <ClInclude Include="IGP.hpp" />
+    <ClInclude Include="ImageInfo\BitmapFactory.hpp" />
+    <ClInclude Include="ImageInfo\IGPBitmap.hpp" />
+    <ClInclude Include="ImageInfo\IGPBitmapBase.hpp" />
+    <ClInclude Include="ImageInfo\IGPBitmapChannel.h" />
+    <ClInclude Include="ImageInfo\IGPBitmapHSL.hpp" />
+    <ClInclude Include="ImageInfo\IGPJpeg.h" />
+    <ClInclude Include="ImageInfo\JpegTurbo.h" />
+    <ClInclude Include="ProcessModule\AlphaModule.hpp" />
+    <ClInclude Include="ProcessModule\BlackAndWhiteModule.hpp" />
+    <ClInclude Include="ProcessModule\BlurModule.hpp" />
+    <ClInclude Include="ProcessModule\FilletModule.hpp" />
+    <ClInclude Include="ProcessModule\GrayModule.hpp" />
+    <ClInclude Include="ProcessModule\ProcessBase.hpp" />
+    <ClInclude Include="ProcessModule\ProjectionModule.hpp" />
+    <ClInclude Include="ProcessModule\SelectiveBlur.hpp" />
+    <ClInclude Include="ProcessModule\WhiteningMode.hpp" />
+    <ClInclude Include="ProcessModule\ZoomModule.hpp" />
+    <ClInclude Include="Shape\BaseRect.h" />
+    <ClInclude Include="Shape\IGPCircle.h" />
+    <ClInclude Include="Shape\IGPLineSegment.h" />
+    <ClInclude Include="Shape\IGPPoint.h" />
+    <ClInclude Include="Shape\IGPTetragonum.h" />
+    <ClInclude Include="Shape\IGPVector.h" />
+    <ClInclude Include="Shape\LineCommonly.hpp" />
+    <ClInclude Include="Shape\Shape.h" />
+    <ClInclude Include="ShowImage\OpencvShow.hpp" />
+    <ClInclude Include="Typedef\MyTypedef.h" />
+    <ClInclude Include="Typedef\My_define.h" />
+    <ClInclude Include="Typedef\_struct.hpp" />
+    <ClInclude Include="Util\IGPUtility.h" />
+    <ClInclude Include="Util\StringUtil.h" />
+    <ClInclude Include="Util\UtilAllocator.hpp" />
+    <ClInclude Include="Util\UtilMath.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jni\Android.mk" />
+    <None Include="jni\Application.mk" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
