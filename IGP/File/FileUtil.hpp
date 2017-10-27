@@ -13,8 +13,6 @@
 #include <string>
 
 namespace zkzszd {
-    
-
 
 	/*以unix为标准路径  即以"/"为标准 */
     class FileUtils {
@@ -39,21 +37,17 @@ namespace zkzszd {
         static bool			makeDir(const std::string& path);
 		//删除文件（不支持递归）
         static bool			deleteFile(const std::string& path);
-
         //递归创建目录，父目录不存在会先创建父目录
         static int          creat_dir(std::string& name);
-        
         //递归删除目录
         static int          delete_dir(std::string& path);
-		
 		//获取当前工作目录
 		static std::string getPwd();
 	private:
-		FileUtils();
+		FileUtils();		//防止工具类被实例化
 		static int			_WIN32_delete_dir(std::string& path);
 		static int			_UNIX_delete_dir(std::string& path);
     };
-    
 }
 
 #endif /* FileUtil_hpp */

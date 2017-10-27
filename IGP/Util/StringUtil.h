@@ -1,32 +1,14 @@
-﻿/*
- * Copyright (C) 2004-2013 Geometer Plus <contact@geometerplus.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
- * 02110-1301, USA.
- */
-
-#ifndef __STRING_UTIL_H__
+﻿#ifndef __STRING_UTIL_H__
 #define __STRING_UTIL_H__
 
 #include <vector>
 #include <string>
-
-class StringUtil {
+namespace zkzszd
+{
+class UtilString {
 
 private:
-	StringUtil();
+	UtilString();
 
 public:
 	static bool stringStartsWith(const std::string &str, const std::string &start);
@@ -36,7 +18,7 @@ public:
 	static void append(std::string &str, const std::vector<std::string> &buffer);
 	static void stripWhiteSpaces(std::string &str);
 	static std::string stripAllWhiteSpaces(const std::string str);
-
+	/*以指定的字符串分割原字符串*/
 	static std::vector<std::string> split(const std::string &str, const std::string &delimiter);
 
 	static std::string printf(const std::string &format, const std::string &arg0);
@@ -57,4 +39,5 @@ public:
 	static std::string replaceAllDistinct(std::string& src_str, const std::string& old_value, const std::string& new_value);
 };
 
+}
 #endif /* __STRING_UTIL_H__ */

@@ -56,11 +56,11 @@ namespace zkzszd
     
     std::string FileUtils::normalizeUnixPath(const std::string& path) {
         std::string nPath;
-		if (StringUtil::stringStartsWith(path,"./"))
+		if (UtilString::stringStartsWith(path,"./"))
 		{
 			nPath = getPwd() + path.substr(2);
 		}
-		else if (StringUtil::stringStartsWith(path,"../"))
+		else if (UtilString::stringStartsWith(path,"../"))
 		{
 			nPath = parentDir(getPwd()) + path.substr(3);
 		}
@@ -95,7 +95,7 @@ namespace zkzszd
         while ((index = (int)nPath.find("//")) != -1) {
             nPath.erase(index, 1);
         }
-		StringUtil::replaceAll(nPath,"\\","/");
+		UtilString::replaceAll(nPath,"\\","/");
         return nPath;
     }
 
@@ -104,7 +104,7 @@ namespace zkzszd
 		char pwd[256] = { 0 };
 		getcwd(pwd, 256);
 		std::string str_pwd(pwd);
-		return StringUtil::replaceAll(str_pwd, "\\", "/");
+		return UtilString::replaceAll(str_pwd, "\\", "/");
 	}
     
     std::string	FileUtils::parentDir(const std::string& path)
@@ -130,7 +130,7 @@ namespace zkzszd
     
     std::string FileUtils::shortName(const std::string& path)
     {
-        std::vector<std::string> _names = StringUtil::split(path, "/");
+        std::vector<std::string> _names = UtilString::split(path, "/");
         //logger.println("short name 0 is :"+_names[0]);
         //logger.println("short name 1 is :"+_names[1]);
         //logger.println("short name 222 is :"+_names[_names.size() - 1]);
