@@ -24,7 +24,7 @@ namespace zkzszd
 		//static GrayIntegral* getGrayIntegral(IGPBitmap &gray_bitmap)
 		//但是如果这样定义就表示会出现算法内部分配的内存需要用户去释放、去管理，而用户往往不清楚函数内部分配了内存，或者不清楚是否需要自己去释放
 		//或者返回一个对象
-		//static GrayIntegral getGrayIntegral(IGPBitmap &gray_bitmap)
+		//static GrayIntegral getGrayIntegral(const IGPBitmap &gray_bitmap)
 		//这种方法按java的思想是最可取的，但是在c++中，这会存在函数中局部对象到使用者定义对象的拷贝复制过程，而很多对象都是unmoveabled的，会存在比较大的拷贝复制消耗，同时也需要对象重载=操作符，不然默认浅拷贝是错误的
 
 		//获取灰度图的积分图，（注意：为了防止重复灰度化原图，此函数只处理灰度化的图，原图不做处理）

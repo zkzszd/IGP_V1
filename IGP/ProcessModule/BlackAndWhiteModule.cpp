@@ -12,6 +12,11 @@ namespace zkzszd {
     
 	int8 BlackAndWhiteModule::processGray(IGPBitmap &bitmap, function<float(IGPBitmap&)> threshol_method)
 	{
+		//if (bitmap.image_format != GRAY_ONE_CHANNEL || bitmap.image_format != GRAY_THREE_CHANNEL)
+		//{
+		//	return -1;
+		//}
+
 		float threshol = threshol_method(bitmap);
 		if (threshol > 255)
 			threshol = 255;
@@ -21,26 +26,47 @@ namespace zkzszd {
 		uint32 width = bitmap.getWidth();
 		uint32 height = bitmap.getHeight();
 		uint32 oneLength = bitmap.getOnePixelLength();
-		    
-#pragma omp parallel for
-		for(int32 h = 0;h < height;h++)
+
+		if (bitmap.getFormat() == GRAY_ONE_CHANNEL)
 		{
-		    for(uint32 w = 0;w < width;w++)
-		    {
-				uint32 loc = (h*width+w)*oneLength;
-		        if(px[loc] > threshol)
-		        {
-		            px[loc] = 255;
-		            px[loc+1] = 255;
-		            px[loc+2] = 255;
-		        }
-		        else
-		        {
-		            px[loc] = 0;
-		            px[loc+1] = 0;
-		            px[loc+2] = 0;
-		        }
-		    }
+			for (int32 h = 0; h < height; h++)
+			{
+				uint8 *line_px = px + h*bitmap.getStride();
+				for (uint32 w = 0; w < width; w++)
+				{
+					if (line_px[w] > threshol)
+					{
+						line_px[w] = 255;
+					}
+					else
+					{
+						line_px[w] = 0;
+					}
+				}
+			}
+		}
+		else
+		{
+#pragma omp parallel for
+			for (int32 h = 0; h < height; h++)
+			{
+				for (uint32 w = 0; w < width; w++)
+				{
+					uint32 loc = (h*width + w)*oneLength;
+					if (px[loc] > threshol)
+					{
+						px[loc] = 255;
+						px[loc + 1] = 255;
+						px[loc + 2] = 255;
+					}
+					else
+					{
+						px[loc] = 0;
+						px[loc + 1] = 0;
+						px[loc + 2] = 0;
+					}
+				}
+			}
 		}
 		return CODE_SUCESS;
 	}
@@ -133,5 +159,44 @@ namespace zkzszd {
 			bestT = 255;
 
 		return bestT;
+	}
+
+	float BlackAndWhiteModule::Otsu::operator()(IGPBitmap &bitmap)
+	{
+		float histogram[256] = { 0 };
+		for (int i = 0; i<bitmap.height; i++) {
+			unsigned char* p = (unsigned char*)bitmap.pixels + bitmap.stride*i;
+			for (int j = 0; j<bitmap.width; j++) {
+				histogram[*p]++;
+				p += bitmap.one_pixel_length;
+			}
+		}
+		//normalize histogram  
+		int size = bitmap.height*bitmap.width;
+		for (int i = 0; i<256; i++) {
+			histogram[i] = histogram[i] / size;
+		}
+
+		//average pixel value  
+		float avgValue = 0;
+		for (int i = 0; i<256; i++) {
+			avgValue += i*histogram[i];
+		}
+
+		int threshold;
+		float maxVariance = 0;
+		float w = 0, u = 0;
+		for (int i = 0; i<256; i++) {
+			w += histogram[i];
+			u += i*histogram[i];
+
+			float t = avgValue*w - u;
+			float variance = t*t / (w*(1 - w));
+			if (variance>maxVariance) {
+				maxVariance = variance;
+				threshold = i;
+			}
+		}
+		return threshold;
 	}
 }

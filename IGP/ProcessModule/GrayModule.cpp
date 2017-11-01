@@ -10,16 +10,63 @@
 
 namespace zkzszd
 {
-	uint8 GrayModule::GrayToOneChannel(IGPBitmap &fr_bitmap, IGPBitmap &to_bitmap,EnumGrayMode mode)
+	uint8 GrayModule::GrayToOneChannel(IGPBitmap &fr_bitmap, IGPBitmap &to_bitmap,EnumGrayMode gray_mode)
 	{
-		int32 width = fr_bitmap.getWidth();
-		int32 height = fr_bitmap.getHeight();
-		uint8* fr_px = (uint8*)fr_bitmap.getPixels();
-		uint8* to_px = (uint8*)to_bitmap.getPixels();
-		if (to_px != NULL)
+		if (fr_bitmap.width != to_bitmap.width || fr_bitmap.height != to_bitmap.height)
 		{
-			free(to_px);
+			if (to_bitmap.pixels != nullptr)
+			{
+				free(to_bitmap.pixels);
+			}
+			to_bitmap.width = fr_bitmap.width;
+			to_bitmap.height = fr_bitmap.height;
+			to_bitmap.image_format = GRAY_ONE_CHANNEL;
+			to_bitmap.stride = to_bitmap.width;
+			to_bitmap.one_pixel_length = 1;
+			to_bitmap.pixels = (uint8*)malloc(to_bitmap.width*to_bitmap.height*sizeof(uint8*));
 		}
+		switch (gray_mode)
+		{
+		case GRAY_MODE_AVERAGE:
+			for (int32 h = 0; h < fr_bitmap.height; h++)
+			{
+				uint8* line_fr_px = fr_bitmap.pixels + h*fr_bitmap.stride;
+				uint8* line_to_px = to_bitmap.pixels + h*to_bitmap.stride;
+				for (int32 w = 0; w < fr_bitmap.width; w++)
+				{
+					int32 fr_loc = w*fr_bitmap.one_pixel_length;
+					line_to_px[w] = (line_fr_px[fr_loc] + line_fr_px[fr_loc + 1] + line_fr_px[fr_loc + 2]) / 3;
+				}
+			}
+			break;
+		case GRAY_MODE_VISION:
+			for (int32 h = 0; h < fr_bitmap.height; h++)
+			{
+				uint8* line_fr_px = fr_bitmap.pixels + h*fr_bitmap.stride;
+				uint8* line_to_px = to_bitmap.pixels + h*to_bitmap.stride;
+				for (int32 w = 0; w < fr_bitmap.width; w++)
+				{
+					int32 fr_loc = w*fr_bitmap.one_pixel_length;
+					line_to_px[w] = line_fr_px[fr_loc] * 0.299 + line_fr_px[fr_loc + 1] * 0.578 + line_fr_px[fr_loc + 2] * 0.114;
+				}
+			}
+			break;
+		case GRAY_MODE_YUV:
+			for (int32 h = 0; h < fr_bitmap.height; h++)
+			{
+				uint8* line_fr_px = fr_bitmap.pixels + h*fr_bitmap.stride;
+				uint8* line_to_px = to_bitmap.pixels + h*to_bitmap.stride;
+				for (int32 w = 0; w < fr_bitmap.width; w++)
+				{
+					int32 fr_loc = w*fr_bitmap.one_pixel_length;
+					line_to_px[w] = line_fr_px[fr_loc] * 0.3 + line_fr_px[fr_loc + 1] * 0.59 + line_fr_px[fr_loc + 2] * 0.11;
+				}
+			}
+			break;
+		default:
+			break;
+		}
+
 		return 0;
 	}
 

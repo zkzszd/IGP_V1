@@ -1,6 +1,8 @@
 #include "ProcessBase.hpp"
 #include "../Util/UtilMath.hpp"
 #include <math.h>
+#include "./GrayModule.hpp"
+#include "./BlackAndWhiteModule.hpp"
 
 namespace zkzszd
 {
@@ -37,6 +39,7 @@ namespace zkzszd
 		return RET_OK;
 	}
 
+	//http://blog.csdn.net/songhhll/article/details/12612601
 	RET_CODE ProcessBase::getFaceAreaByRGB(IGPBitmap &bitmap, IGPBitmap &area_bitmap)
 	{
 		if (area_bitmap.pixels != nullptr)
@@ -60,8 +63,20 @@ namespace zkzszd
 				g = bitmap.pixels[loc + 1];
 				b = bitmap.pixels[loc + 2];
 
-				if (r > 95 && g > 40 && b > 20 && UtilMath::Max(r, g, b) - UtilMath::Min(r, g, b) > 15
-					&& abs(r - g) > 15 && r > g && r > b)
+				//´Ë´¦bºÍr»¥»»
+				//((RGB.blue > 95 && RGB.green > 40 && RGB.red > 20 &&
+				//	RGB.blue - RGB.red > 15 && RGB.blue - RGB.green > 15) ||//uniform illumination
+				//	(RGB.blue > 200 && RGB.green > 210 && RGB.red > 170 &&
+				//		abs(RGB.blue - RGB.red) <= 15 && RGB.blue > RGB.red &&
+				//		RGB.green > RGB.red))
+
+					
+
+				//if (r > 95 && g > 40 && b > 20 && UtilMath::Max(r, g, b) - UtilMath::Min(r, g, b) > 15
+				//	&& abs(r - g) > 15 && r > g && r > b)
+				if ((r > 95 && g > 40 && b > 20 && r - b > 15 && r - g > 15) ||
+					(r > 200 && g > 210 && b > 170 && abs(r - b) <= 15 && r > b && g > b)
+					)
 				{
 					area_bitmap.pixels[h*area_bitmap.stride + w] = 255;
 				}

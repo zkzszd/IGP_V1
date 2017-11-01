@@ -25,8 +25,6 @@
 
 using namespace std;
 
-extern class IGPBitmapHSL;
-
 namespace zkzszd
 {
 

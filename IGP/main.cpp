@@ -15,14 +15,15 @@ using namespace std;
 #include <string>
 int main(int argc, const char * argv[]) 
 {
-	std::string png_320_480_path("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\320_480.png");
-	std::string png_sun_path("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\sun.png");
-	std::string jpg_str_img_IMG("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\IMG.jpg");
-	std::string png_str_img_IMG("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\IMG.png");
-	std::string jpg_str_img_mohu("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\mohu.jpg");
-	std::string png_str_img_mohu("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\mohu.png");
-	std::string png_str_img_eyes("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\eyes.png");
-	std::string jpg_str_img_hei("F:\\vs2015\\vsWork\\IGP\\IGP\\TestFile\\hei.jpg");
+	std::string png_320_480_path("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\320_480.png");
+	std::string png_sun_path("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\sun.png");
+	std::string jpg_str_img_IMG("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\IMG.jpg");
+	std::string png_str_img_IMG("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\IMG.png");
+	std::string jpg_str_img_mohu("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\mohu.jpg");
+	std::string png_str_img_mohu("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\mohu.png");
+	std::string png_str_img_eyes("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\eyes.png");
+	std::string jpg_str_img_hei("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\hei.jpg");
+	std::string jpg_str_img_0420("F:\\vs2015\\vsWork\\IGP_V1\\IGP\\TestFile\\IMG_0402.jpg"); 
 //    std::string str = "#ff00ff00";
 //    
 //    printf("%lx\n",strtol(str.substr(1,str.length()-1).c_str(), nullptr, 16));
@@ -280,14 +281,35 @@ int main(int argc, const char * argv[])
 	//BlurModule::BlurOwn(bitmap, 12, circle, IGP_linear(), 20);
 	//OpencvShow::Show(bitmap);
 
+	//IGPBitmap bitmap(png_320_480_path, FORMAT_PIC_PNG);
+	//IGPBitmap area_bitmap;
+	//GrayModule::GrayToOneChannel(bitmap, area_bitmap, GrayModule::GRAY_MODE_AVERAGE);
+	//OpencvShow::Show(area_bitmap);
+
 
 	////测试肤色区域  (部分景物照，效果不佳)
-	//JpegTurbo jpegTurbo;
-	//jpegTurbo.decode(jpg_str_img_hei);
-	//IGPBitmap &bitmap = jpegTurbo.getBitamp();
-	//IGPBitmap area_bitmap;
+	JpegTurbo jpegTurbo;
+	jpegTurbo.decode(jpg_str_img_hei);
+	IGPBitmap &bitmap = jpegTurbo.getBitamp();
+	IGPBitmap area_bitmap;
+	GrayModule::GrayToOneChannel(bitmap, area_bitmap, GrayModule::GRAY_MODE_VISION);
+	BlackAndWhiteModule::processGray(area_bitmap, BlackAndWhiteModule::Otsu());
+	OpencvShow::Show(area_bitmap);
 	//ProcessBase::getFaceAreaByRGB(bitmap,area_bitmap);
-	//OpencvShow::Show(area_bitmap);
+
+	WhiteningMode::WhiteningWithLog(bitmap,8, area_bitmap);
+
+	OpencvShow::Show(bitmap);
+
+	IGPBitmapChannel bt_channel;
+	IGPBitmap new_bitmap;
+	IGPBitmapChannel des_chanel(bitmap.getWidth(),bitmap.getHeight(),bitmap.getFormat());
+	SpaceAdapter::BitmapSplit(bitmap, bt_channel);
+
+	SelectiveBlur::selectBlur(bt_channel, des_chanel, 10, 25, Edge_Mode_Repeat);
+	SpaceAdapter::CombineBitmap(des_chanel, new_bitmap);
+
+	OpencvShow::Show(new_bitmap);
 
 
 	//测试卷积

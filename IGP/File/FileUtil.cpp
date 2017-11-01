@@ -115,9 +115,7 @@ namespace zkzszd
     
     std::string FileUtils::extensionName(const std::string& path)
     {
-        //logger.println("ZYFileUtils-full name path is "+ path);
         std::string myShortName = shortName(path);
-        //logger.println("ZYFileUtils-short name path is "+ myShortName);
         int n = (int)myShortName.find_last_of(".");
         
         if(n == std::string::npos){
@@ -131,9 +129,6 @@ namespace zkzszd
     std::string FileUtils::shortName(const std::string& path)
     {
         std::vector<std::string> _names = UtilString::split(path, "/");
-        //logger.println("short name 0 is :"+_names[0]);
-        //logger.println("short name 1 is :"+_names[1]);
-        //logger.println("short name 222 is :"+_names[_names.size() - 1]);
         if(!_names.empty()){
             return _names[_names.size() - 1];
         }else
@@ -296,7 +291,6 @@ namespace zkzszd
 		return ret_code;
 	}
     
-
 	/*
 	*	linux递归删除目录
 	*	递归删除目录
@@ -342,30 +336,6 @@ namespace zkzszd
 #endif
         return 0;
     }
-
-
-	//BOOL FileUtils::IsDirectory(std::string& path)
-	//{
-	//	char szCurPath[500];
-	//	ZeroMemory(szCurPath, 500);
-	//	sprintf_s(szCurPath, 500, "%s//*", path.c_str());
-	//	WIN32_FIND_DATAA FindFileData;
-	//	ZeroMemory(&FindFileData, sizeof(WIN32_FIND_DATAA));
-
-	//	HANDLE hFile = FindFirstFileA(szCurPath, &FindFileData); /**< find first file by given path. */
-
-	//	if (hFile == INVALID_HANDLE_VALUE)
-	//	{
-	//		FindClose(hFile);
-	//		return FALSE; /** 如果不能找到第一个文件，那么没有目录 */
-	//	}
-	//	else
-	//	{
-	//		FindClose(hFile);
-	//		return TRUE;
-	//	}
-	//}
-
 
 	int FileUtils::_WIN32_delete_dir(std::string& path)
 	{

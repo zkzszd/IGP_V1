@@ -26,9 +26,9 @@ namespace zkzszd
                 {
                     for(int w = 0;w < igpBitmap.getWidth();w++)
                     {
-                        image->imageData[h*igpBitmap.getStride()+w*3] = ((char*)igpBitmap.getPixels())[h*igpBitmap.getStride()+w*3+2];
-                        image->imageData[h*igpBitmap.getStride()+w*3+1] = ((char*)igpBitmap.getPixels())[h*igpBitmap.getStride()+w*3+1];
-                        image->imageData[h*igpBitmap.getStride()+w*3+2] = ((char*)igpBitmap.getPixels())[h*igpBitmap.getStride()+w*3];
+                        image->imageData[h*image->widthStep +w*3] = ((char*)igpBitmap.getPixels())[h*igpBitmap.getStride()+w*3+2];
+                        image->imageData[h*image->widthStep +w*3+1] = ((char*)igpBitmap.getPixels())[h*igpBitmap.getStride()+w*3+1];
+                        image->imageData[h*image->widthStep +w*3+2] = ((char*)igpBitmap.getPixels())[h*igpBitmap.getStride()+w*3];
                     }
                 }
                 break;
@@ -36,7 +36,7 @@ namespace zkzszd
                 image = cvCreateImage(sz, IPL_DEPTH_8U, 4);
                 for(int h = 0; h < igpBitmap.getHeight();h++)
                 {
-                    int8* des_line = (int8*)image->imageData+h*igpBitmap.getStride();
+                    int8* des_line = (int8*)image->imageData+h*image->widthStep;
                     int8* src_line = ((int8*)igpBitmap.getPixels()+h*igpBitmap.getStride());
                     for(int w = 0;w<igpBitmap.getWidth();w++)
                     {
@@ -49,6 +49,17 @@ namespace zkzszd
                 break;
             case GRAY_ONE_CHANNEL:
                 image = cvCreateImage(sz, IPL_DEPTH_8U, 1);
+				/*for (int h = 0; h < igpBitmap.getHeight(); h++)
+				{
+					int8* des_line = (int8*)image->imageData + h*image->widthStep;
+					int8* src_line = ((int8*)igpBitmap.getPixels() + h*igpBitmap.getStride());
+					for (int w = 0; w<igpBitmap.getWidth(); w++)
+					{
+						des_line[w * 3] = src_line[w];
+						des_line[w * 3 + 1] = src_line[w];
+						des_line[w * 3 + 2] = src_line[w];
+					}
+				}*/
                 memcpy(image->imageData,igpBitmap.getPixels(),igpBitmap.getStride()*igpBitmap.getHeight());
                 break;
             default:

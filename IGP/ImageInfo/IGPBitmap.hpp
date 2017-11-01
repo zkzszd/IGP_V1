@@ -65,6 +65,8 @@ namespace zkzszd
 		friend class JpegTurbo;
 		friend class SpaceAdapter;
 		friend class ProcessBase;
+		friend class GrayModule;
+		friend class BlackAndWhiteModule;
     private:
         uint32 width;
         uint32 height;

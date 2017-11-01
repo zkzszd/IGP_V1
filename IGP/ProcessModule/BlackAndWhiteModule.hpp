@@ -55,9 +55,19 @@ public:
     {
         float operator()(IGPBitmap &bitmap);
     };
+
+	/*****************************************************************************
+	* @function name : 通过大津法（最大类间方差法）得到二值化墒值
+	* @author : zkzszd
+	* @date : 2017/8/28 15:05
+	*****************************************************************************/
+	struct Otsu
+	{
+		float operator()(IGPBitmap &bitmap);
+	};
     
     /**
-     二值化(黑白化)灰度化过的图像
+     二值化(黑白化)灰度化过的图像(为了避免重复，不支持真彩色图片黑白化，请灰白化在黑白)
 
      @param bitmap 灰度化过的照片 RGB 或者RGBA格式
      @return <#return value description#>
